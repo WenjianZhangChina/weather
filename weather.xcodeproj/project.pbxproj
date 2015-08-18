@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF7FB0691B834E190086A506 /* demoPic1.png in Resources */ = {isa = PBXBuildFile; fileRef = FF7FB0681B834E190086A506 /* demoPic1.png */; };
+		FF7FB06B1B834E280086A506 /* demoPic2.png in Resources */ = {isa = PBXBuildFile; fileRef = FF7FB06A1B834E280086A506 /* demoPic2.png */; };
 		FF8B7A181B822F0F00ECBCAE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8B7A171B822F0F00ECBCAE /* main.m */; };
 		FF8B7A1B1B822F0F00ECBCAE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8B7A1A1B822F0F00ECBCAE /* AppDelegate.m */; };
 		FF8B7A1E1B822F0F00ECBCAE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF8B7A1D1B822F0F00ECBCAE /* ViewController.m */; };
@@ -27,6 +29,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FF7FB0681B834E190086A506 /* demoPic1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = demoPic1.png; sourceTree = "<group>"; };
+		FF7FB06A1B834E280086A506 /* demoPic2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = demoPic2.png; sourceTree = "<group>"; };
 		FF8B7A121B822F0F00ECBCAE /* weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF8B7A161B822F0F00ECBCAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF8B7A171B822F0F00ECBCAE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -96,6 +100,8 @@
 		FF8B7A151B822F0F00ECBCAE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FF7FB0681B834E190086A506 /* demoPic1.png */,
+				FF7FB06A1B834E280086A506 /* demoPic2.png */,
 				FF8B7A161B822F0F00ECBCAE /* Info.plist */,
 				FF8B7A171B822F0F00ECBCAE /* main.m */,
 			);
@@ -199,9 +205,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF7FB06B1B834E280086A506 /* demoPic2.png in Resources */,
 				FF8B7A211B822F0F00ECBCAE /* Main.storyboard in Resources */,
 				FF8B7A261B822F0F00ECBCAE /* LaunchScreen.xib in Resources */,
 				FF8B7A231B822F0F00ECBCAE /* Images.xcassets in Resources */,
+				FF7FB0691B834E190086A506 /* demoPic1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,6 +424,7 @@
 				FF8B7A371B822F1000ECBCAE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FF8B7A381B822F1000ECBCAE /* Build configuration list for PBXNativeTarget "weatherTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +433,7 @@
 				FF8B7A3A1B822F1000ECBCAE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
