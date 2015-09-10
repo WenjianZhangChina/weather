@@ -29,7 +29,7 @@
     NSURL *url = [NSURL URLWithString: urlStr];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL: url cachePolicy: NSURLRequestUseProtocolCachePolicy timeoutInterval: 10];
     [request setHTTPMethod: @"GET"];
-    [request addValue: @"请替换成您自己的密钥" forHTTPHeaderField: @"apikey"];
+    [request addValue: @"340a243e128fa2df55444acbd7590ea7" forHTTPHeaderField: @"apikey"];
     [NSURLConnection sendAsynchronousRequest: request
                                        queue: [NSOperationQueue mainQueue]
                            completionHandler: ^(NSURLResponse *response, NSData *data, NSError *error){
@@ -59,6 +59,7 @@
                                    self.dateLabel.text = [today objectForKey:@"date"];
                                    self.maxTmpLabel.text = [tmpToday objectForKey:@"max"];
                                    self.minTmpLabel.text = [tmpToday objectForKey:@"min"];
+                                   
                                    // 第二排第三排显示接下来的温度变化
                                    NSArray *hourlyArray = [self.innerDict objectForKey:@"hourly_forecast"];
                                    NSDictionary *time1Dict = [hourlyArray objectAtIndex:0];
@@ -67,13 +68,16 @@
                                    NSMutableString *tmp1 = [[NSMutableString alloc] initWithString:[time1Dict objectForKey:@"tmp"]];
                                    [tmp1 appendString:@"℃"];
                                    self.tmp1Label.text = tmp1;
-                                   NSDictionary *time2Dict = [hourlyArray objectAtIndex:1];
-                                   NSString *time2 = [time2Dict objectForKey:@"date"];
-                                   self.time2Label.text = [time2 substringFromIndex:11];
-                                   NSMutableString *tmp2 = [[NSMutableString alloc] initWithString:[time2Dict objectForKey:@"tmp"]];
-                                   [tmp2 appendString:@"℃"];
-                                   self.tmp2Label.text = tmp2;
                                    
+                                   if (hourlyArray.count >1) {
+                                       NSDictionary *time2Dict = [hourlyArray objectAtIndex:1];
+                                       NSString *time2 = [time2Dict objectForKey:@"date"];
+                                       self.time2Label.text = [time2 substringFromIndex:11];
+                                       NSMutableString *tmp2 = [[NSMutableString alloc] initWithString:[time2Dict objectForKey:@"tmp"]];
+                                       [tmp2 appendString:@"℃"];
+                                       self.tmp2Label.text = tmp2;
+                                   }
+                                  
                                    // 补充风向风速
                                    NSDictionary *windDict = [today objectForKey:@"wind"];
                                    NSMutableString *wind = [[NSMutableString alloc] initWithString:[windDict objectForKey:@"dir"]];
@@ -85,13 +89,15 @@
                                    NSDateFormatter  *dateformatter=[[NSDateFormatter alloc] init];
                                    [dateformatter setDateFormat:@"HH:mm"];
                                    NSString *  locationString=[dateformatter stringFromDate:senddate];
-                                   //NSLog(@"%@", locationString);
+                                   NSLog(@"%@", locationString);
                                    NSDictionary *astroDict = [today objectForKey:@"astro"];
                                    NSString *sr = [astroDict objectForKey:@"sr"];
                                    NSString *ss = [astroDict objectForKey:@"ss"];
                                    BOOL afterSr = [locationString compare:sr];
-                                   BOOL beforeSS = [ss compare:locationString];
-                                   if(afterSr && beforeSS) self.darkLabel.text = @"否";
+                                   NSLog(@"%@", ss);
+                                   
+                                   BOOL afterSs = [ss compare:locationString];
+                                   if(afterSr && !afterSs) self.darkLabel.text = @"否";
                                    else self.darkLabel.text = @"是";
                                    
                                    // 空气质量
